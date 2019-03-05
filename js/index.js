@@ -1,5 +1,5 @@
 const siteContent = {
-  "nav": {
+  nav: {
     "nav-item-1": "Services",
     "nav-item-2": "Product",
     "nav-item-3": "Vision",
@@ -8,35 +8,115 @@ const siteContent = {
     "nav-item-6": "Contact",
     "img-src": "img/logo.png"
   },
-  "cta": {
-    "h1": "DOM Is Awesome",
-    "button": "Get Started",
+  cta: {
+    h1: "DOM Is Awesome",
+    button: "Get Started",
     "img-src": "img/header-img.png"
   },
   "main-content": {
-    "features-h4":"Features",
-    "features-content": "Features content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis.",
-    "about-h4":"About",
-    "about-content": "About content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis.",
+    "features-h4": "Features",
+    "features-content":
+      "Features content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis.",
+    "about-h4": "About",
+    "about-content":
+      "About content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis.",
     "middle-img-src": "img/mid-page-accent.jpg",
-    "services-h4":"Services",
-    "services-content": "Services content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis.",
-    "product-h4":"Product",
-    "product-content": "Product content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis.",
-    "vision-h4":"Vision",
-    "vision-content": "Vision content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis.",
+    "services-h4": "Services",
+    "services-content":
+      "Services content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis.",
+    "product-h4": "Product",
+    "product-content":
+      "Product content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis.",
+    "vision-h4": "Vision",
+    "vision-content":
+      "Vision content elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis."
   },
-  "contact": {
-    "contact-h4" : "Contact",
-    "address" : "123 Way 456 Street Somewhere, USA",
-    "phone" : "1 (888) 888-8888",
-    "email" : "sales@greatidea.io",
+  contact: {
+    "contact-h4": "Contact",
+    address: "123 Way 456 Street Somewhere, USA",
+    phone: "1 (888) 888-8888",
+    email: "sales@greatidea.io"
   },
-  "footer": {
-    "copyright" : "Copyright Great Idea! 2018"
-  },
+  footer: {
+    copyright: "Copyright Great Idea! 2018"
+  }
 };
 
 // Example: Update the img src for the logo
 let logo = document.getElementById("logo-img");
-logo.setAttribute('src', siteContent["nav"]["img-src"])
+logo.setAttribute("src", siteContent["nav"]["img-src"]);
+
+// NAV
+let nav = document.querySelectorAll("a");
+let navItems = Array.from(siteContent.nav);
+// console.log(nav);
+// ??????????????
+nav.forEach((elem, i) => {
+  elem.textContent = siteContent.nav[`nav-item-${i + 1}`];
+});
+// CTA-TEXT
+let h1Text = document.querySelector("h1");
+// console.log(h1Text);
+h1Text.innerHTML = "DOM <br> Is <br> Awesome";
+
+// CTA-IMG
+let ctaImg = document.getElementById("cta-img");
+// console.log(ctaImg);
+ctaImg.setAttribute("src", siteContent["cta"]["img-src"]);
+
+// BUTTON
+let btn = document.querySelector("button");
+btn.textContent = "Get Started";
+// console.log(btn);
+
+// MIDDLE IMAGE
+const midImg = document.getElementById("middle-img");
+// console.log(midImg);
+midImg.src = siteContent["main-content"]["middle-img-src"];
+
+// h4
+let h4Titles = document.querySelectorAll(".text-content h4");
+console.log(h4Titles);
+const keys = Object.entries(siteContent["main-content"]);
+h4Titles.forEach(title => {
+  // for(let i=0; i < keys.length)
+  title.textContent = keys[0][1];
+});
+// ??????????????
+
+// p
+let pTags = document.querySelectorAll(".text-content p");
+// console.log(pTags);
+// ??????????????
+
+// BOTTOM CONTENT
+let bottomTextContent = Array.from(
+  document.getElementsByClassName("text-content")
+);
+bottomTextContent.forEach(function(elem) {
+  const elemArr = Array.from(elem.children);
+  // elemArr[0].textContent = siteContent['main-content']['']
+  // console.log(elemArr[0]);
+});
+for (let i = 0; i < bottomTextContent.length; i++) {
+  // console.log(bottomTextContent[i]);
+  // for (let j = 0; i < bottomTextContent[i].length; i++) {
+  //   console.log(bottomTextContent[j]);
+  // }
+}
+
+// console.log(bottomTextContent);
+
+// CONTACT
+let contactSection = Array.from(document.querySelector(".contact").children);
+// console.log(contactSection);
+contactSection[0].textContent = siteContent.contact["contact-h4"];
+contactSection[1].innerHTML = siteContent.contact.address;
+contactSection[2].textContent = siteContent.contact.phone;
+contactSection[3].textContent = siteContent.contact.email;
+
+// Footer
+
+let footerTag = Array.from(document.querySelector("footer").children);
+footerTag[0].textContent = siteContent.footer.copyright;
+// console.log(footerTag);

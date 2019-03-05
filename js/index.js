@@ -48,10 +48,12 @@ logo.setAttribute("src", siteContent["nav"]["img-src"]);
 
 // NAV
 let nav = document.querySelectorAll("a");
+
 let navItems = Array.from(siteContent.nav);
 // console.log(nav);
 // ??????????????
 nav.forEach((elem, i) => {
+  elem.style.color = "green";
   elem.textContent = siteContent.nav[`nav-item-${i + 1}`];
 });
 // CTA-TEXT
